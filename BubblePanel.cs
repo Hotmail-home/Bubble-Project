@@ -16,7 +16,7 @@ public class BubblePanel : Panel
 
     private Color bc = Color.FromArgb(128, Color.Aqua);
 
-    [Category("Extra Options")]
+    [Category("AMRO Extra Options")]
     public Color BC
     {
         get { return bc; }
@@ -52,6 +52,7 @@ public class BubblePanel : Panel
                 e.Graphics.FillPath(shadowBrush, shadowPath);
             }
         }
+
         // Add rainbow layers on top
         AddRainbowLayers(e.Graphics, bubbleBounds);
 
@@ -86,7 +87,7 @@ public class BubblePanel : Panel
         }
 
 
-        
+       
     }
 
     private void AddRainbowLayers(Graphics g, Rectangle bounds)
@@ -104,7 +105,7 @@ public class BubblePanel : Panel
         };
 
         // Loop through the rainbow colors and draw layers
-        int layerOffset = 0; // Increase the offset to reduce the number of layers
+        int layerOffset = 1; // Increase the offset to reduce the number of layers
         foreach (var color in rainbowColors)
         {
             Rectangle layerBounds = new Rectangle(bounds.X + layerOffset, bounds.Y + layerOffset, bounds.Width - layerOffset * 2, bounds.Height - layerOffset * 2);

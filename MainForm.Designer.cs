@@ -61,7 +61,7 @@ namespace Bubble_Project
             this.bubblePanel2.Size = new System.Drawing.Size(241, 247);
             this.bubblePanel2.TabIndex = 4;
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -71,7 +71,7 @@ namespace Bubble_Project
             this.Controls.Add(this.bubblePanel3);
             this.Controls.Add(this.bubblePanel1);
             this.Controls.Add(this.bubblePanel2);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.ResumeLayout(false);
