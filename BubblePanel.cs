@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
@@ -9,9 +10,23 @@ public class BubblePanel : Panel
     {
         // To avoid flickering
         this.DoubleBuffered = true;
+        BackColor = Color.Transparent;
+        Size = new Size(250, 250);
     }
 
     private Color bc = Color.FromArgb(128, Color.Aqua);
+
+    [Category("Extra Options")]
+    public Color BC
+    {
+        get { return bc; }
+        set
+        {
+            bc = value;
+            this.Invalidate();
+        }
+    }
+
 
     protected override void OnPaint(PaintEventArgs e)
     {
@@ -20,6 +35,7 @@ public class BubblePanel : Panel
         // Set smoothing for better quality
         e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
 
+        
         // Define the bubble shape
         int borderRadius = 50; // Adjust for roundness
         Rectangle bubbleBounds = new Rectangle(10, 10, this.Width - 20, this.Height - 20);
@@ -36,6 +52,8 @@ public class BubblePanel : Panel
                 e.Graphics.FillPath(shadowBrush, shadowPath);
             }
         }
+        // Add rainbow layers on top
+        AddRainbowLayers(e.Graphics, bubbleBounds);
 
         // Create the bubble shape with base color
         using (GraphicsPath bubblePath = new GraphicsPath())
@@ -61,14 +79,14 @@ public class BubblePanel : Panel
             highlightPath.AddEllipse(highlightBounds);
             using (PathGradientBrush highlightBrush = new PathGradientBrush(highlightPath))
             {
-                highlightBrush.CenterColor = Color.FromArgb(180, Color.White); // Semi-transparent white
+                highlightBrush.CenterColor = Color.FromArgb(128, Color.White); // Semi-transparent white
                 highlightBrush.SurroundColors = new[] { Color.Transparent };
                 e.Graphics.FillPath(highlightBrush, highlightPath);
             }
         }
 
-        // Add rainbow layers on top
-        AddRainbowLayers(e.Graphics, bubbleBounds);
+
+        
     }
 
     private void AddRainbowLayers(Graphics g, Rectangle bounds)
@@ -86,7 +104,7 @@ public class BubblePanel : Panel
         };
 
         // Loop through the rainbow colors and draw layers
-        int layerOffset = 10; // Increase the offset to reduce the number of layers
+        int layerOffset = 0; // Increase the offset to reduce the number of layers
         foreach (var color in rainbowColors)
         {
             Rectangle layerBounds = new Rectangle(bounds.X + layerOffset, bounds.Y + layerOffset, bounds.Width - layerOffset * 2, bounds.Height - layerOffset * 2);
@@ -106,7 +124,19 @@ public class BubblePanel : Panel
                 }
             }
 
-            layerOffset += 15; // Adjust layer thickness
+            layerOffset += 5; // Adjust layer thickness
         }
     }
+
+    protected override CreateParams CreateParams
+    {
+        get
+        {
+            var cp = base.CreateParams;
+            cp.ExStyle |= 0x00000020;
+            return cp;
+        }
+    }
+
+
 }
