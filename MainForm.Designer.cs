@@ -68,7 +68,7 @@ namespace Bubble_Project
             // 
             this.bubblePanel3.BackColor = System.Drawing.Color.Transparent;
             this.bubblePanel3.BC = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.bubblePanel3.Location = new System.Drawing.Point(516, 15);
+            this.bubblePanel3.Location = new System.Drawing.Point(516, 12);
             this.bubblePanel3.Name = "bubblePanel3";
             this.bubblePanel3.Size = new System.Drawing.Size(250, 250);
             this.bubblePanel3.TabIndex = 6;
@@ -86,9 +86,9 @@ namespace Bubble_Project
             // 
             this.bubblePanel2.BackColor = System.Drawing.Color.Transparent;
             this.bubblePanel2.BC = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.bubblePanel2.Location = new System.Drawing.Point(268, 15);
+            this.bubblePanel2.Location = new System.Drawing.Point(264, 12);
             this.bubblePanel2.Name = "bubblePanel2";
-            this.bubblePanel2.Size = new System.Drawing.Size(241, 247);
+            this.bubblePanel2.Size = new System.Drawing.Size(250, 250);
             this.bubblePanel2.TabIndex = 4;
             // 
             // MainForm
